@@ -5,6 +5,12 @@ import {
   watchAddProject,
   watchUploadImage,
 } from './projects';
+import {
+  watchGetSections,
+  watchDeleteSection,
+  watchAddSection,
+  watchUploadImageSection
+} from './sections';
 
 export default function* rootSaga () {
   yield [
@@ -12,5 +18,9 @@ export default function* rootSaga () {
     watchDeleteProject(),
     watchAddProject(),
     watchUploadImage(),
+    watchUploadImageSection(),
+    watchGetSections(),
+    watchDeleteSection(),
+    watchAddSection()
   ];
 }

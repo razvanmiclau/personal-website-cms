@@ -118,7 +118,7 @@ function* addProject () {
   try {
     const result = yield call(addProjectToServer, newProject);
     yield put(addProjectSuccess());
-    hashHistory.push('/projects');
+    hashHistory.push('admin/projects');
   } catch (err) {
     console.log(err);
   }

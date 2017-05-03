@@ -5,10 +5,14 @@ var morgan = require('morgan');
 
 // Models
 import Project from './models/project';
+import Section from './models/section';
+// Routes
 import { getProjects, getProject, postProject, deleteProject } from './client/routes/project';
+import { getSections, getSection, addSection, deleteSection } from './client/routes/section';
+
 
 // DB URI
-const DB_URI = 'mongodb://test-user:password123@ds157500.mlab.com:57500/personalweb_db';
+const DB_URI = 'mongodb://razvanmc:capsuniM1923@ds157500.mlab.com:57500/personalweb_db';
 
 var app = express();
 app.set('port', (process.env.PORT || 5000));
@@ -42,6 +46,13 @@ app.route('/admin/projects')
 app.route('/admin/projects/:id')
    .get(getProject)
    .delete(deleteProject);
+
+app.route('/admin/sections')
+   .post(addSection)
+   .get(getSections);
+app.route('/admin/sections/:id')
+   .get(getSection)
+   .delete(deleteSection);
 
 app.route("*").get(function(req, res){
   res.sendFile('public/index.html', { root: __dirname });

@@ -36,17 +36,6 @@ const postProject = (req, res) => {
   });
 };
 
-const updateProject = (req, res) => {
-  const { id, project_name, project_desc, project_image } = req.params;
-  let project = Object.assign(new Project(), req.body);
-  project.save(err => {
-    if (err) {
-      res.send(err);
-    }
-    res.json({ message: 'Project Updated'})
-  });
-};
-
 // Delete a Project
 const deleteProject = (req, res) => {
   Project.remove({_id: req.params.id }, err => {

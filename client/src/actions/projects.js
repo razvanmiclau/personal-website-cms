@@ -109,6 +109,13 @@ const searchQuery = (keyword) => {
   }
 }
 
+const displayProjectDetails = (project) => {
+  return {
+    type: DISPLAY_PROJECT_DETAILS,
+    project
+  }
+}
+
 export {
   getProjects,
   getProjectsSuccess,
@@ -123,4 +130,5 @@ export {
   uploadImageSuccess,
   uploadImageFail,
   searchQuery,
+  displayProjectDetails
 };

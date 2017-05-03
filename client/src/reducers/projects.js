@@ -32,6 +32,10 @@ export default (state = initialState, action) => {
       return state.merge({ searchBar: action.keyword });
     }
 
+    case DISPLAY_PROJECT_DETAILS: {
+      return state.merge({ selectedProject: action.project });
+    }
+
     case ADD_PROJECT_SUCCESS:
     case ADD_PROJECT_FAIL:
     case UPLOAD_IMAGE_FAIL:

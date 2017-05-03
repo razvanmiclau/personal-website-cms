@@ -4,14 +4,17 @@ import storeConfig from './store';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 // Components
-import Home from './components/Home';
-import HomeContainer from './components/HomeContainer';
-import Admin from './components/Admin';
-import AdminContainer from './components/AdminContainer';
-import ProjectsContainer from './components/ProjectsContainer';
-import AddProjectContainer from './components/Containers/AddProjectContainer';
-import SectionsContainer from './components/SectionsContainer';
-import AddSectionContainer from './components/Containers/AddSectionContainer';
+import Home from './components/User/Home';
+import HomeContainer from './components/User/HomePage';
+
+import Admin from './components/Admin/Admin';
+
+import AdminContainer from './components/Admin/Pages/AdminPage';
+import ProjectsContainer from './components/Admin/Pages/ProjectsPage';
+import SectionsContainer from './components/Admin/Pages/SectionsPage';
+
+import AddProjectContainer from './components/Admin/AddProject';
+import AddSectionContainer from './components/Admin/AddSection';
 
 const store = storeConfig();
 
