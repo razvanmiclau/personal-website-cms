@@ -9,7 +9,8 @@ import Section from './models/section';
 // Routes
 import { getProjects, getProject, postProject, deleteProject } from './client/routes/project';
 import { getSections, getSection, addSection, deleteSection } from './client/routes/section';
-
+// Authentication
+import { signup, login, checkAuth } from './client/routes/user';
 
 // DB URI
 const DB_URI = 'mongodb://razvanmc:capsuniM1923@ds157500.mlab.com:57500/personalweb_db';
@@ -41,18 +42,21 @@ app.use((req, res, next) => {
 
 // Routes
 app.route('/admin/projects')
-   .post(postProject)
+   .post(checkAuth, postProject)
    .get(getProjects);
 app.route('/admin/projects/:id')
    .get(getProject)
-   .delete(deleteProject);
+   .delete(checkAuth, deleteProject);
 
 app.route('/admin/sections')
-   .post(addSection)
+   .post(checkAuth, addSection)
    .get(getSections);
 app.route('/admin/sections/:id')
    .get(getSection)
-   .delete(deleteSection);
+   .delete(checkAuth, deleteSection);
+
+app.post('/authenticate/login', login);
+app.post('/authenticate/signup', signup);
 
 app.route("*").get(function(req, res){
   res.sendFile('public/index.html', { root: __dirname });
