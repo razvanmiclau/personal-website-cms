@@ -14,7 +14,7 @@ class Form extends PureComponent {
             type="text"
             className="form-control"
             component="input"
-            placeholder="Project Title" />
+          placeholder="Project Title" />
         </div>
 
         <div className="field">
@@ -34,7 +34,7 @@ class Form extends PureComponent {
             className="form-control"
             rows="3"
             component="textarea"
-            placeholder="Project Description" />
+          placeholder="Project Description" />
         </div>
         <ul className="actions">
           <li>

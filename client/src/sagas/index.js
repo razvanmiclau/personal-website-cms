@@ -11,6 +11,9 @@ import {
   watchAddSection,
   watchUploadImageSection
 } from './sections';
+import {
+  watchLogin
+} from './auth';
 
 export default function* rootSaga () {
   yield [
@@ -21,6 +24,7 @@ export default function* rootSaga () {
     watchUploadImageSection(),
     watchGetSections(),
     watchDeleteSection(),
-    watchAddSection()
+    watchAddSection(),
+    watchLogin()
   ];
 }

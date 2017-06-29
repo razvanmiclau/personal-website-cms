@@ -2,6 +2,11 @@ import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
 
 export default class Admin extends PureComponent {
+
+  logout() {
+    localStorage.removeItem('token')
+  }
+
   render() {
     return(
       <div id="wrapper" className="divider">
@@ -16,6 +21,7 @@ export default class Admin extends PureComponent {
             </div>
             <ul className="nav navbar-nav navbar-right">
               <li><Link to="/">Website</Link></li>
+              <li><Link to="/" onClick={() => this.logout()}>Logout</Link></li>
             </ul>
           </div>
         </nav>
