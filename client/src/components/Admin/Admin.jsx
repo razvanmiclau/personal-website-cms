@@ -1,9 +1,18 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as authActionsCreators from '../../actions/auth';
 
-export default class Admin extends PureComponent {
+class Admin extends PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.logout = this.logout.bind(this);
+  }
 
   logout() {
+    this.props.authActions.logout();
     localStorage.removeItem('token')
   }
 
@@ -21,7 +30,7 @@ export default class Admin extends PureComponent {
             </div>
             <ul className="nav navbar-nav navbar-right">
               <li><Link to="/">Website</Link></li>
-              <li><Link to="/" onClick={() => this.logout()}>Logout</Link></li>
+              <li><Link to="/" onClick={this.logout}>Logout</Link></li>
             </ul>
           </div>
         </nav>
@@ -30,3 +39,11 @@ export default class Admin extends PureComponent {
     )
   }
 };
+
+function mapDispatchToProps (dispatch) {
+  return {
+    authActions: bindActionCreators(authActionsCreators, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Admin);

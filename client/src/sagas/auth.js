@@ -1,6 +1,7 @@
 import { takeLatest } from 'redux-saga';
 import { put, call, select } from 'redux-saga/effects';
 import { hashHistory } from 'react-router';
+import { push } from 'react-router-redux';
 
 import { LOGIN } from '../constants/auth';
 import {
@@ -35,7 +36,7 @@ function* login (action) {
     // save token to localStorage.
     localStorage.setItem('token', result.token);
     yield put(loginSuccess(result.token));
-    yield put(hashHistory.push(redirect))
+    yield put(push(redirect));
   } catch (err) {
     // let message = '';
     // if (err.status === 401) message = 'Invalid email or password!';

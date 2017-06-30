@@ -20,6 +20,8 @@ import SectionsContainer from './components/Admin/Pages/SectionsPage';
 import AddProjectContainer from './components/Admin/AddProject';
 import AddSectionContainer from './components/Admin/AddSection';
 
+import { syncHistoryWithStore, push } from 'react-router-redux';
+
 const store = storeConfig();
 
 // http://razvanmiclau.com/ => Home -> HomeContainer
@@ -29,12 +31,18 @@ const store = storeConfig();
 // http://razvanmiclau.com/admin/sections => SectionsContainer
 // http://razvanmiclau.com/admin/sections/add AddSectionContainer
 
+const history = syncHistoryWithStore(hashHistory, store, {
+  selectLocationState (state) {
+    return state.get('routing').toObject();
+  }
+});
+
 const options = {
   authSelector: state => state.get('auth'),
   predicate: authenticate => authenticate.get('isAuthenticated'),
   redirectAction: ({ pathname, query }) => {
     if (query.redirect)
-      return hashHistory.push(`authenticate${pathname}?next=${query.redirect}`);
+      return push(`authenticate${pathname}?next=${query.redirect}`);
   },
   wrapperDisplayName: 'UserIsJWTAuthenticated'
 };
@@ -43,7 +51,7 @@ const requireAuth = userAuthenticated(options);
 
 const routes = (
   <Provider store={store}>
-    <Router history={hashHistory}>
+    <Router history={history}>
       <Route path="/" component={Home}>
         <IndexRoute component={HomeContainer} />
       </Route>
