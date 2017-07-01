@@ -3462,7 +3462,7 @@
 		-webkit-justify-content: center;
 		-ms-justify-content: center;
 		justify-content: center;
-		background-color: inherit;
+		background-color: #fff;
 		position: relative;
 		text-align: center;
 		overflow-x: hidden;

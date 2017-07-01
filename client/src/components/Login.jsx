@@ -13,34 +13,41 @@ class Login extends PureComponent {
 
   render() {
     return(
-      <form>
-        <div className="field">
-          <label htmlFor="email">Email Address</label>
-          <Field
-            name="email"
-            type="text"
-            className="form-control"
-            component="input"
-          placeholder="email" />
-        </div>
+      <section className="banner style2 fullscreen onload-image-fade-in onload-content-fade-right orient-center content-align-center image-position-center">
+        <div className="content">
+          <h1>Admin Login</h1> <hr />
+          <form>
+            <div className="field">
+              <label htmlFor="email">Email Address</label>
+              <Field
+                name="email"
+                type="email"
+                component="input"
+              placeholder="email" />
+            </div>
 
-        <div className="field">
-          <label htmlFor="password">Password</label>
-          <Field
-            name="password"
-            type="password"
-            className="form-control"
-            component="input"
-          placeholder="password" />
+            <div className="field">
+              <label htmlFor="password">Password</label>
+              <Field
+                name="password"
+                type="password"
+                component="input"
+              placeholder="password" />
+            </div>
+            <ul className="actions">
+              <li>
+                <button type="button" onClick={() => this.login()}>
+                  Login
+                </button>
+              </li>
+            </ul>
+          </form>
         </div>
-        <ul className="actions">
-          <li>
-            <button type="button" onClick={() => this.login()}>
-              Login
-            </button>
-          </li>
-        </ul>
-      </form>
+        <div className="image">
+          <img src="https://source.unsplash.com/category/people/1600x900" />
+        </div>
+      </section>
+
     )
 
   }

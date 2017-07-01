@@ -13,9 +13,8 @@ class Form extends PureComponent {
           <Field
             name="project_name"
             type="text"
-            className="form-control"
             component="input"
-            placeholder="Project Title" />
+          placeholder="Project Title" />
         </div>
 
         <div className="field">
@@ -32,10 +31,9 @@ class Form extends PureComponent {
           <Field
             name="project_desc"
             type="text"
-            className="form-control"
             rows="3"
             component="textarea"
-            placeholder="Project Description" />
+          placeholder="Project Description" />
         </div>
 
         <div className="field">
@@ -43,7 +41,6 @@ class Form extends PureComponent {
           <Field
             name="project_stack"
             type="text"
-            className="form-control"
             component='input'
             placeholder="Node.js, Express, React/Redux, MongoDB"
           />

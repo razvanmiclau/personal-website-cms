@@ -15,9 +15,8 @@ class FormSection extends PureComponent {
           <Field
             name="section_title"
             type="text"
-            className="form-control"
             component="input"
-            placeholder="Section Title" />
+          placeholder="Section Title" />
         </div>
 
         <div className="field">
@@ -35,7 +34,6 @@ class FormSection extends PureComponent {
             id="textareaField"
             name="section_desc"
             type="text"
-            className="form-control"
             rows="3"
             component="textarea"
             placeholder="Section Description" />
